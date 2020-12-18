@@ -5,7 +5,7 @@ I did build my resume with MVC software arquitecture. For get info, the frontend
 ## Frontend
 - It was build with:
      * HTML5
-     * CSS3
+     * CSS3 - using CSS grid
      * Javascript with VUE CLI as framework
 
 
