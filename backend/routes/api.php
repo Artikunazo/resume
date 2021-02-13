@@ -1,5 +1,11 @@
 <?php
 
+//header('Access-Control-Allow-Origin: http://localhost:8080');
+// header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method, Authorization");
+// header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
+// header("Allow: GET, POST, OPTIONS, PUT, DELETE");
+
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,23 +19,35 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('aboutme', 'AboutMeController');
+$exceptMethods = ['create', 'edit', 'destroy', 'update', 'store', 'show'];
 
-Route::resource('education', 'EducationController');
+Route::get('all-info', 'AllInfoController@getAllInfo');
 
-Route::resource('experiences', 'ExperiencesController');
+Route::resource('aboutme', 'AboutMeController@index')
+    ->except($exceptMethods);
 
-Route::resource('info', 'BasicInfoController');
+Route::resource('education', 'EducationController@index')
+    ->except($exceptMethods);
 
-Route::resource('languages', 'LanguagesController');
+Route::resource('experiences', 'ExperiencesController@index')
+    ->except($exceptMethods);
 
-Route::resource('references', 'ReferencesController');
+Route::resource('info', 'BasicInfoController@index')
+    ->except($exceptMethods);
 
-Route::resource('tech-skills', 'TechSkillsController');
+Route::resource('languages', 'LanguagesController@index')
+    ->except($exceptMethods);
 
-Route::resource('skills', 'SkillsController');
+Route::resource('references', 'ReferencesController@index')
+    ->except($exceptMethods);
 
-Route::resource('social-networks', 'SocialNetworksController');
+Route::resource('tech-skills', 'TechSkillsController@index')
+    ->except($exceptMethods);
+
+Route::resource('skills', 'SkillsController@index')
+    ->except($exceptMethods);
+
+Route::resource('social-networks', 'SocialNetworksController@index')
+    ->except($exceptMethods);
 
 Route::resource('send-form', 'ContactMeController');
-
