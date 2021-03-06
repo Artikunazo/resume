@@ -1,7 +1,7 @@
 <template lang="en">
 <div id="skills" class="row section">
 <div class="col">
-  <h2>Skills</h2>
+  <h2>Soft Skills</h2>
      <ol class="skills">
         <li v-for="skill in skills" v-html="skill.description" class="skills__item"></li>
     </ol>

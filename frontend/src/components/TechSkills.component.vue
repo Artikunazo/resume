@@ -23,7 +23,7 @@
             </div>
           </div>
 
-          <div class="row card__no-frameworks" v-else>
+          <div class="row card--no-frameworks" v-else>
             <div class="col">
               <h3 class="card__title">{{ skill.technologyName }}</h3>
             </div>
@@ -40,18 +40,18 @@ export default {
 </script>
 <style scoped>
 .card,
-.card__no-frameworks {
+.card--no-frameworks {
   height: 100px;
   margin: 15px;
 }
 .card__header,
 .card__body,
-.card__no-frameworks {
+.card--no-frameworks {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.card__no-frameworks {
+.card--no-frameworks {
   background-color: var(--red-main);
   border-radius: 8px;
 }

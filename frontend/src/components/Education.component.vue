@@ -2,44 +2,85 @@
   <div id="education" class="row section">
     <div class="col education">
       <h2>Education</h2>
-      <ul>
-        <li v-for="(education, index) in educationList" :key="index">
-          <div class="education__university" v-if="index === 0">
-            <h3>{{ education.title }}</h3>
-            <h4>{{ education.school }}</h4>
-            <p>{{ education.date }}</p>
-            <a :href="education.info" target="_blank" rel="noreferrer">{{
-              education.info
-            }}</a>
+      <div class="row">
+        <div
+          class="card "
+          :class="[index === 0 ? 'col-12' : 'col-6']"
+          v-for="(education, index) in educationList"
+          :key="index"
+        >
+          <div class="row">
+            <div class="col card__image">
+              <a :href="education.site" target="_blank" rel="noreferrer"
+                ><img :src="education.logo" :alt="`Logo de ${education.school}`"
+              /></a>
+            </div>
+            <div
+              class="col text-center card__body"
+              v-if="education.title != 'Courses'"
+            >
+              <h3>{{ education.title }}</h3>
+              <p>{{ education.date }}</p>
+              <a
+                :href="education.site"
+                target="_blank"
+                rel="noreferrer"
+                title="Go to website"
+                >Go to website <i class="fas fa-external-link-alt"></i
+              ></a>
+            </div>
+            <div class="col text-center card__body" v-else>
+              <a
+                :href="education.site"
+                target="_blank"
+                rel="noreferrer"
+                title="Go to profile"
+                >Go to profile <i class="fas fa-external-link-alt"></i
+              ></a>
+            </div>
           </div>
 
-          <div v-else>
-            <picture class="education__certification">
-              <source :srcset="education.info.jp2" type="image/jp2" />
-              <!-- format supported by safari -->
-              <source :srcset="education.info.webp" type="image/webp" />
-              <!-- format supported on many browsers -->
-              <source :srcset="education.info.jpg" type="image/jpg" />
-              <!-- common supported format -->
-              <img :src="education.info.jpg" alt="" />
-              <!-- default -->
-            </picture>
-          </div>
-
-          <hr class="hr" />
-        </li>
-      </ul>
+          <!-- {{education.title != 'Courses' ? countRows = 1 : countRows++}} -->
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["educationList"]
+  props: ["educationList"],
+  methods: {
+    getImageUrl(imageName) {
+      return require("@/assets/img/" + imageName);
+    }
+  }
 };
 </script>
 
 <style scoped>
+.card {
+  padding: 10px;
+}
+.card__image img {
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  min-height: 170px;
+  vertical-align: bottom;
+}
+.card:not(:first-of-type) {
+  margin-top: 25px;
+}
+.card__body {
+  background-color: var(--red-main);
+  padding: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.card__body a {
+  text-decoration: none;
+}
 .education {
   margin-top: 20px;
 }

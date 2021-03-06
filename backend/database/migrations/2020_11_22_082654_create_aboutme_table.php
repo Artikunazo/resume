@@ -20,8 +20,9 @@ class CreateAboutmeTable extends Migration
         });
 
         DB::table('aboutme')->insert([
-            'description' => "I am a web developer. I know build and consume API REST. As well as I know work with MVC and POO. So, I have around of 5 years of experience as web developer. I like to work with Kanban agile methodology.
-            I am a person very patient; I like to work in team. Also, I like to work in home-office, I learn very fast and I can adapt to any work environment."
+            'description' => "I have 6 years of experience in web applications development. I know to build and consume APIs REST; as well as I know to work with MVC and POO paradigms.
+            <br />
+            I like to work in team. I am a person patient; I can learn very fast and I can adapt to any work environment."
         ]);
     }
 

@@ -3,42 +3,54 @@
     <h2>Contact me</h2>
     <form class="contact" v-on:submit.prevent="sendForm">
       <div class="contact__element">
-        <label for="ipName" class="contact__element--label">Your name</label>
-        <input
-          type="text"
-          class="contact__element--input"
-          v-model="form.name.value"
-          required
-        />
+        <label for="ipName" class="contact__element--label"
+          >Your name
+          <input
+            name="ipName"
+            type="text"
+            class="contact__element--input"
+            v-model="form.name.value"
+            required
+          />
+        </label>
       </div>
       <div class="contact__element">
-        <label for="ipEmail">Your E-mail</label>
-        <input
-          type="email"
-          class="contact__element--input"
-          v-model="form.email.value"
-          required
-        />
+        <label for="ipEmail"
+          >Your E-mail
+          <input
+            name="ipEmail"
+            type="email"
+            class="contact__element--input"
+            v-model="form.email.value"
+            required
+          />
+        </label>
       </div>
       <div class="contact__element">
-        <label for="ipSubject">Subject</label>
-        <input
-          type="text"
-          class="contact__element--input"
-          v-model="form.subject.value"
-          required
-        />
+        <label for="ipSubject"
+          >Subject
+          <input
+            name="ipSubject"
+            type="text"
+            class="contact__element--input"
+            v-model="form.subject.value"
+            required
+          />
+        </label>
       </div>
       <div class="contact__element">
-        <label for="ipComment">Your comment</label>
-        <textarea
-          type="text"
-          class="contact__element--textarea"
-          v-model="form.comment.value"
-          required
-          rows="4"
-          cols="50"
-        ></textarea>
+        <label for="ipComment"
+          >Your comment
+          <textarea
+            name="ipComment"
+            type="text"
+            class="contact__element--textarea"
+            v-model="form.comment.value"
+            required
+            rows="4"
+            cols="50"
+          ></textarea>
+        </label>
       </div>
       <div class="contact__element">
         <button type="submit" class="contact__element--button primary-button">

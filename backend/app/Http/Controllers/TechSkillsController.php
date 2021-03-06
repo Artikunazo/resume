@@ -18,7 +18,6 @@ class TechSkillsController extends Controller
         $techSkills = DB::table('techskills')
             ->select('id')
             ->addSelect('name as technologyName')
-            ->addSelect('percent as percent')
             ->get();
 
 

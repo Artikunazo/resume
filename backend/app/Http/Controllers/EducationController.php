@@ -7,7 +7,7 @@ use DB;
 
 class EducationController extends Controller
 {
-    private static $urlCertifications = 'https://artikunazo.mx/img/certifications/';
+    // private static $urlCertifications = 'https://artikunazo.mx/img/certifications/';
     /**
      * Display a listing of the resource.
      *
@@ -20,25 +20,10 @@ class EducationController extends Controller
             ->select('title as title')
             ->addSelect('school as school')
             ->addSelect('date as date')
-            ->addSelect('info as info')
+            ->addSelect('url as site')
+            ->addSelect('logo as logo')
             ->get();
 
-        foreach ($education as $courses) {
-            if (strpos($courses->info, ':') !== false) {
-                continue;
-            } else {
-                $courses->info = [
-                    'jp2' => self::$urlCertifications . "/" . $courses->info . "/" . $courses->info . ".jp2",
-                    'webp' => self::$urlCertifications  . "/" . $courses->info . "/" . $courses->info . ".webp",
-                    'jpg' => self::$urlCertifications  . "/" . $courses->info . "/" . $courses->info . ".jpg"
-                ];
-            }
-        }
-
-        $arr = [];
-        foreach($arr as $item){
-            
-        }
         return response()->json($education);
     }
 

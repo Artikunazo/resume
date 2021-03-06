@@ -50,7 +50,7 @@ class CreateFrameworksTable extends Migration
 
         DB::table('frameworks')->insert([
             'id_tech' => 4,
-            'name' => 'VueJS',
+            'name' => 'Vue',
             'percent' => '25'
         ]);
         
